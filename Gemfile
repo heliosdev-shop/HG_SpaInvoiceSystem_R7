@@ -77,3 +77,6 @@ end
 gem 'hot-glue'
 
 gem 'bootstrap', '~> 5.1.3'
+
+gem 'font_awesome5_rails'
+

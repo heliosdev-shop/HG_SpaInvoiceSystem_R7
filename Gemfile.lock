@@ -97,6 +97,9 @@ GEM
       railties (>= 5.0.0)
     ffaker (2.20.0)
     ffi (1.15.4)
+    font_awesome5_rails (1.5.0)
+      nokogiri (>= 1.11.3)
+      railties (>= 4.2)
     globalid (1.0.0)
       activesupport (>= 5.0)
     hot-glue (0.4.1)
@@ -257,6 +260,7 @@ DEPENDENCIES
   debug
   factory_bot_rails
   ffaker
+  font_awesome5_rails
   hot-glue
   importmap-rails
   jbuilder
