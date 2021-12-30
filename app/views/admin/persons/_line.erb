@@ -1,0 +1,12 @@
+
+<%= turbo_frame_tag "person__#{ person.id }" do  %>
+  <div class='row scaffold-row' data-id='<%= person.id %>' data-edit='false'>
+    <%= render partial: 'admin/persons/show', locals: { person: person, 
+     account: account, nested_for: "account-#{account.id}" } %>
+
+  </div>
+<% end %>
+
+
+
+

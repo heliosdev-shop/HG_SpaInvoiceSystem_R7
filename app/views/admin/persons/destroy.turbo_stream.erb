@@ -1,0 +1,5 @@
+<%= turbo_stream.replace "persons-list__account-#{@account.id}" do %>
+  <%= render partial: "list", locals: {persons: @persons , 
+    nested_for: "account-#{@account.id}" , 
+     account: @account}  %>
+<% end %>

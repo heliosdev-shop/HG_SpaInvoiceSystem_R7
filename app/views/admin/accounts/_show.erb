@@ -9,7 +9,24 @@
     <% end %>
 
   </div>
+<div class='col-md-2'><%= account.email %></div>
 
+
+  
+
+  
+
+    
+    
+    
+    
+    <div class=" col-md-4 scaffold-downnest"  >
+  <%= render partial: "admin/people/list", locals: {
+    nested_for: "account-#{account.id}",
+    account: account,
+    people: account.persons} %>
+  </div>
+  
 
 
 

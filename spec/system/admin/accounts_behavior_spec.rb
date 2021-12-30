@@ -2,12 +2,13 @@ require 'rails_helper'
 
 describe "interaction for Admin::AccountsController", type: :feature do
   include HotGlue::ControllerHelper
-    #HOTGLUE-SAVESTART
+  #HOTGLUE-SAVESTART
   #HOTGLUE-END
   
   
   let!(:account1) {create(:account , name: FFaker::Movie.title, 
-      is_admin: !!rand(2).floor )}
+      is_admin: !!rand(2).floor, 
+      email: FFaker::Internet.email )}
    
 
   describe "index" do
@@ -15,6 +16,7 @@ describe "interaction for Admin::AccountsController", type: :feature do
       visit admin_accounts_path
       expect(page).to have_content(account1.name)
       expect(page).to have_content(account1.is_admin)
+      expect(page).to have_content(account1.email)
     end
   end
 
@@ -28,10 +30,13 @@ describe "interaction for Admin::AccountsController", type: :feature do
       find("[name='account[name]']").fill_in(with: new_name)
      new_is_admin = rand(2).floor 
      find("[name='account[is_admin]'][value='#{new_is_admin}']").choose
+      new_email = 'new_test-email@nowhere.com' 
+      find("[name='account[email]']").fill_in(with: new_email)
       click_button "Save"
       expect(page).to have_content("Successfully created")
       expect(page).to have_content(new_name)
       expect(page).to have_content(new_is_admin)
+      expect(page).to have_content(new_email)
     end
   end
 
@@ -46,9 +51,12 @@ describe "interaction for Admin::AccountsController", type: :feature do
       find("input[name='account[name]']").fill_in(with: new_name)
      new_is_admin = rand(2).floor 
      find("[name='account[is_admin]'][value='#{new_is_admin}']").choose
+      new_email = 'new_test-email@nowhere.com' 
+      find("[name='account[email]']").fill_in(with: new_email)
       click_button "Save"
       within("turbo-frame#account__#{account1.id} ") do
         expect(page).to have_content(new_name)
+        expect(page).to have_content(new_email)
       end
     end
   end 

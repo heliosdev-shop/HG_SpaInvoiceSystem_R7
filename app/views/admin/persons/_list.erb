@@ -1,0 +1,30 @@
+<%= turbo_frame_tag "persons-list" + ('__' + nested_for)  do %>
+  <div class="container-fluid scaffold-list">
+    
+
+    <%= render partial: "admin/persons/new_button", locals: {account: account}%><br />
+
+    
+    <div class="row scaffold-heading-row">
+      <div class='col-md-1'>Name</div>
+      
+
+      
+
+      <div class=' scaffold-col-heading scaffold-col-heading-buttons col-md-2' >
+
+      </div>
+    </div>
+      <% if persons.empty? %>
+    <div>
+        None
+    </div>
+      <% end %>
+      <% persons.each do |person| %>
+        <%= render partial: 'admin/persons/line', locals: {person: person, 
+     account: account, nested_for: nested_for } %>
+      <% end %>
+    <% if persons.respond_to?(:total_pages) %><%= paginate(persons) %> <% end %>
+  
+  </div>
+<% end %>

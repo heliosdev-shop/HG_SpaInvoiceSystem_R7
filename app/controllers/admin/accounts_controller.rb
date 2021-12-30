@@ -101,11 +101,11 @@ class Admin::AccountsController < Admin::BaseController
   end
 
   def account_params
-    params.require(:account).permit( [:name, :is_admin] )
+    params.require(:account).permit( [:name, :is_admin, :email] )
   end
 
   def default_colspan
-    2
+    3
   end
 
   def namespace
