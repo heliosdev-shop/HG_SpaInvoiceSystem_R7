@@ -80,3 +80,4 @@ gem 'bootstrap', '~> 5.1.3'
 
 gem 'font_awesome5_rails'
 
+gem 'devise', branch: 'main', git: 'https://github.com/heartcombo/devise.git'

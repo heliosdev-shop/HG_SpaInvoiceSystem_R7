@@ -11,7 +11,11 @@
   </head>
 
   <body>
-
+  <% if current_account %>
+    <%= button_to "Log Out", destroy_account_session_path, method: :delete, 'data-turbo': false%>
+  <% else %>
+    <%= link_to "Log In", new_account_session_path,  'data-turbo': false %>
+  <% end %>
   <%= render partial: 'layouts/flash_notices' %>
   
     <%= yield %>
