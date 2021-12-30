@@ -1,0 +1,28 @@
+<div class='col-md-2'><%= account.name %></div>
+<div class='col-md-2'>
+    <% if account.is_admin.nil? %>
+        <span class='alert-danger'>MISSING</span>
+    <% elsif account.is_admin %>
+      YES
+    <% else %>
+      NO
+    <% end %>
+
+  </div>
+
+
+
+
+<div class=" scaffold-line-buttons  col-md-2" >
+  
+
+  
+    <%= form_with url: admin_account_path(account), html: {style: "display: inline-block;"}, method: :delete do |f| %>
+      <%= f.submit "Delete".html_safe,  data: {controller: 'confirmable', 'confirm-message': "Are you sure you want to delete #{ account.name } ", 'action': 'confirmation#confirm'}, class: "delete-account-button btn btn-primary btn-sm" %>
+    <% end %>
+  
+
+  
+  <%= link_to "Edit <i class='fa fa-1x fa-list-alt'></i>".html_safe, edit_admin_account_path(account), disable_with: "Loading...", class: "edit-account-button btn btn-primary btn-sm" %>
+  
+</div>

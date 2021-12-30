@@ -74,10 +74,12 @@ group :test do
   gem "webdrivers"
 end
 
-gem 'hot-glue'
+gem 'hot-glue' #, path: '/Users/jason/Work/Hot_Glue/hot-glue-private'
 
 gem 'bootstrap', '~> 5.1.3'
 
 gem 'font_awesome5_rails'
 
 gem 'devise', branch: 'main', git: 'https://github.com/heartcombo/devise.git'
+
+gem 'byebug'
